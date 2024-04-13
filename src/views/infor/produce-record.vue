@@ -5,61 +5,57 @@
     </ContentWrap>
     <ContentWrap title="生产记录表">
       <el-table v-loading="loading" :data="responseData.list" height="400">
-        <el-table-column
-          prop="time"
-          label="时间"
-          min-width="150"
-        ></el-table-column>
-        <el-table-column
-          prop="classes"
-          label="班次"
-          min-width="150"
-        ></el-table-column>
+        <el-table-column prop="time" label="时间" min-width="180" />
+        <el-table-column prop="classes" label="班次" min-width="80" />
         <el-table-column
           prop="address"
           label="地址"
           min-width="150"
-        ></el-table-column>
-        <el-table-column
-          prop="dispatcher"
-          label="调度员"
-          min-width="150"
-        ></el-table-column>
+          show-overflow-tooltip
+        />
+        <el-table-column prop="dispatcher" label="调度员" min-width="150" />
         <el-table-column
           prop="produceAddress"
           label="生产地址"
           min-width="180"
-        ></el-table-column>
+          show-overflow-tooltip
+        />
         <el-table-column
           prop="producePlan"
           label="生产计划"
           min-width="180"
-        ></el-table-column>
+          show-overflow-tooltip
+        />
         <el-table-column
           prop="produceSituation"
           label="生产情况"
           min-width="180"
-        ></el-table-column>
+          show-overflow-tooltip
+        />
         <el-table-column
           prop="rectificationSituation"
           label="安全生产隐患以及整改情况"
           min-width="200"
-        ></el-table-column>
+          show-overflow-tooltip
+        />
         <el-table-column
           prop="rescue"
           label="事故及救援"
           min-width="180"
-        ></el-table-column>
+          show-overflow-tooltip
+        />
         <el-table-column
           prop="accident"
           label="意外事件"
           min-width="180"
-        ></el-table-column>
+          show-overflow-tooltip
+        />
         <el-table-column
           prop="safetyInstructions"
           label="安全指示"
           min-width="180"
-        ></el-table-column>
+          show-overflow-tooltip
+        />
         <el-table-column fixed="right" label="操作" width="80">
           <template #default="{ row }">
             <el-button
@@ -149,9 +145,9 @@ const handleAdd = () => {
 </script>
 <style scoped>
 .mb-20 {
-  margin-bottom: 20px;
   display: flex;
   justify-content: flex-end;
+  margin-bottom: 20px;
 }
 
 .el-pagination {

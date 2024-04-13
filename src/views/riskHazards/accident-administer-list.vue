@@ -4,7 +4,7 @@
       <el-form class="page-query" label-width="170px">
         <el-col :xl="6" :lg="8" :md="12" :sm="12" :xs="24">
           <el-form-item label="检查地点存在问题及隐患">
-            <el-input v-model="requestData.problem"></el-input>
+            <el-input v-model="requestData.problem" />
           </el-form-item>
         </el-col>
         <el-col :xl="6" :lg="8" :md="12" :sm="12" :xs="24">
@@ -48,46 +48,42 @@
       <el-table v-loading="loading" :data="responseData.list" height="400">
         <el-table-column
           prop="problem"
-          min-width="150px"
+          min-width="180px"
           show-overflow-tooltip
           label="检查地点存在问题及隐患"
-        ></el-table-column>
+        />
         <el-table-column prop="grade" min-width="100px" label="隐患等级">
           <template #default="{ row }">
             {{ setMapLabel("grade", row.grade) }}
           </template>
         </el-table-column>
-        <el-table-column
-          prop="type"
-          min-width="180px"
-          label="隐患类型"
-        ></el-table-column>
+        <el-table-column prop="type" min-width="180px" label="隐患类型" />
         <el-table-column
           prop="inspectTime"
-          min-width="150px"
+          min-width="180px"
           label="排查日期"
-        ></el-table-column>
+        />
         <el-table-column
           prop="inspectUser"
           min-width="100px"
           label="排查人员"
-        ></el-table-column>
+        />
         <el-table-column
           prop="rectificationMeasures"
           min-width="150px"
           show-overflow-tooltip
           label="整改措施"
-        ></el-table-column>
+        />
         <el-table-column
           prop="rectificationTime"
-          min-width="150px"
+          min-width="180px"
           label="整改时限"
-        ></el-table-column>
+        />
         <el-table-column
           prop="rectificationMoney"
           min-width="100px"
           label="整改金钱"
-        ></el-table-column>
+        />
         <el-table-column label="整改单位及责任人" min-width="150px">
           <template #default="{ row }"
             >{{ setMapLabel("riskDescription", row.rectificationUnit) }}
@@ -112,11 +108,7 @@
             }}</template
           >
         </el-table-column>
-        <el-table-column
-          prop="cancelTime"
-          min-width="150px"
-          label="销号日期"
-        ></el-table-column>
+        <el-table-column prop="cancelTime" min-width="180px" label="销号日期" />
         <el-table-column fixed="right" label="操作" width="80">
           <template #default="{ row }">
             <el-button
@@ -139,15 +131,14 @@
       />
     </ContentWrap>
     <accidentDialog
-      v-model:dialogVisible="dialogVisible"
       v-if="dialogVisible"
-      @submit="getResponseData"
+      v-model:dialogVisible="dialogVisible"
       :selectRow="selectRow"
       :gradeList="gradeList"
       :riskDescriptionMap="riskDescriptionMap"
       :supervisionMap="supervisionMap"
-    >
-    </accidentDialog>
+      @submit="getResponseData"
+    />
   </div>
 </template>
 <script setup lang="ts">
